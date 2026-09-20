@@ -1,0 +1,11 @@
+*
+!*.*
+!*/
+*.o
+*.so
+*.a
+*.asv
+*~
+doc_C++/
+.DS_Store
+Thumbs.db
