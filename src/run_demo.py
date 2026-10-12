@@ -1,4 +1,4 @@
-"""Verification summary for :mod:`heat9` -- prints every check and writes isotropy.png.
+"""Verification summary for :mod:`heat9` -- prints every check and writes reports/isotropy.png.
 
 Sections
 --------
@@ -6,9 +6,9 @@ Sections
 2. convergence            max-norm error and observed order, 9-point vs 5-point
 3. Fourier symbol         h^2 lambda = -4 (s + c - (2/3) s c), checkerboard = -16/3
 4. stability              Crank-Nicolson vs forward Euler, mu = alpha dt / h^2
-5. isotropy               Gaussian blob, axis vs diagonal, and isotropy.png
+5. isotropy               Gaussian blob, axis vs diagonal, and reports/isotropy.png
 
-Run with ``python3 run_demo.py``.
+Run with ``python3 src/run_demo.py``.
 """
 
 from __future__ import annotations
@@ -341,7 +341,7 @@ def section_isotropy(N=96, sigma0_in_h=1.0, sigma_end_in_h=3.0):
     return data
 
 
-def make_plot(data, sigma, path="isotropy.png"):
+def make_plot(data, sigma, path="reports/isotropy.png"):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt

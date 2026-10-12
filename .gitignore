@@ -1,7 +1,39 @@
-# Python
+# --- Python -----------------------------------------------------------
 __pycache__/
 *.py[cod]
+*.so
 .pytest_cache/
+.ipynb_checkpoints/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
-# macOS
+# virtualenvs
+.venv/
+venv/
+env/
+
+# packaging
+build/
+dist/
+*.egg-info/
+
+# --- Conda / Anaconda -------------------------------------------------
+.anaconda/
+.conda/
+.condarc
+anaconda_projects/
+
+# --- MATLAB (this repo has .m sources in its history) -----------------
+*.asv
+*.mex*
+slprj/
+
+# --- git maintenance artifacts ----------------------------------------
+*.bundle
+
+# --- editors / OS -----------------------------------------------------
 .DS_Store
+.idea/
+*.swp

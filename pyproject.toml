@@ -1,0 +1,25 @@
+[project]
+name = "discovery-learning"
+version = "0.1.0"
+description = "Compact 9-point Laplacian / Crank-Nicolson solver for the 2D heat equation"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy",
+    "scipy",
+    "matplotlib",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+]
+
+[tool.uv]
+# Flat collection of scripts, not an installable package.
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["test"]
+python_files = ["test_*.py"]
+pythonpath = ["src"]

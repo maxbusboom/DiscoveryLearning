@@ -239,9 +239,9 @@ def make_plot(space, time, combined, path=None):
     import matplotlib.pyplot as plt
 
     if path is None:
-        path = {"homogeneous": "error_analysis.png",
-                "constant": "error_analysis_constant_bc.png",
-                "analytic": "error_analysis_analytic_bc.png"}[BOUNDARY]
+        path = {"homogeneous": "reports/error_analysis.png",
+            "constant": "reports/error_analysis_constant_bc.png",
+            "analytic": "reports/error_analysis_analytic_bc.png"}[BOUNDARY]
     INK, INK2, SURF = "#0b0b0b", "#52514e", "#fcfcfb"
     BLUE, ORANGE, GUIDE = "#2a78d6", "#eb6834", "#a8a69c"
     hs, sres, ssl = space

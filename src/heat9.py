@@ -530,7 +530,7 @@ def poly_laplacian(C):
 
 # ---------------------------------------------------------------------------
 # Running this file directly does a quick self-check; run_demo.py is the full
-# verification summary and test_heat9.py is the pytest suite.
+# verification summary and test/test_heat9.py is the pytest suite.
 # ---------------------------------------------------------------------------
 
 
@@ -551,5 +551,5 @@ if __name__ == "__main__":
     print("\nCrank-Nicolson on %r, %d steps of dt=%g (mu = %.3f)"
           % (_grid, _info["nsteps"], _info["dt"], _info["mu"]))
     print("max-norm error vs exp(-2 pi^2 t) sin(pi x) sin(pi y) at T=0.1: %.4e" % _err)
-    print("\nFor the full verification summary run:  python3 run_demo.py")
+    print("\nFor the full verification summary run:  python3 src/run_demo.py")
     print("For the test suite run:                 python3 -m pytest")
