@@ -389,13 +389,14 @@ def crank_nicolson_solve(L, u0, alpha, dt, nsteps, bfun=None, t0=0.0,
     A = (I - half * L).tocsc()
     B = (I + half * L).tocsr()
     lu = spla.splu(A)
-    t = float(t0)
+    t0 = float(t0)
+    t = t0
     b_now = _bvec(bfun, t, n)
     for step in range(nsteps):
-        b_next = _bvec(bfun, t + dt, n)
+        b_next = _bvec(bfun, t0 + (step + 1) * dt, n)
         rhs = B @ U + half * (b_now + b_next)
         U = lu.solve(rhs)
-        t += dt
+        t = t0 + (step + 1) * dt     # not t += dt: no accumulated rounding
         b_now = b_next
         if callback is not None:
             callback(step + 1, t, U)
@@ -412,10 +413,11 @@ def forward_euler_solve(L, u0, alpha, dt, nsteps, bfun=None, t0=0.0,
     """
     U = np.array(u0, dtype=float, copy=True)
     n = U.size
-    t = float(t0)
+    t0 = float(t0)
+    t = t0
     for step in range(nsteps):
         U = U + alpha * dt * (L @ U + _bvec(bfun, t, n))
-        t += dt
+        t = t0 + (step + 1) * dt
         if callback is not None:
             callback(step + 1, t, U)
     return U
